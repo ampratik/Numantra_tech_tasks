@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CalCulator</title>
+    <script src="./index.js"></script>
+</head>
+
+<body>
+    <div class="bodyStyle">
+        <div>
+            <div class="inputstyle">
+                <label class="labelstyle" for="number1">Number 1</label>
+                <input type="number" id="number1" name="number1" /> <br>
+            </div>
+
+            <div class="inputstyle">
+                <label class="labelstyle" for="number2">Number 2</label>
+                <input type="number" id="number2" name="number2" /> <br>
+            </div>
+
+            <div class="inputstyle">
+                <label class="labelstyle" for="result">result</label>
+                <input type="number" id="result" style="margin-left: 25px;" /> <br>
+            </div>
+            <br> <br/>
+
+            <button class="buttontype" onclick="add()">add</button>
+            <button class="buttontype" onclick="sub()">sub</button>
+            <button class="buttontype" onclick="div()">div</button>
+            <button class="buttontype" onclick="mult()">mult</button>
+            <button class="buttontype" onclick="mod()">mod</button>
+            <button class="buttontype" onclick="expo()">expo</button>
+
+          <div style="margin: left 25px;">
+            
+            <button class="buttontype" onclick="clearInput()">Clear All</button>
+          </div>
+        </div>
+        <br><br>
+        <script>
+            function add(){
+             let a=document.getElementById("number1").value ;
+             document.getElementById("number1").innerHTML=a
+
+             let b=document.getElementById("number2").value 
+             document.getElementById("number2").innerHTML=b
+
+             if(!(a||b)){
+                alert("Please enter the Number")
+             return;
+             }
+
+             let data={
+                a:a,
+                b:b
+             };
+
+             fetch("http://localhost:3000/add",{
+                method:"POST",
+                headers:{
+                    "content-type":"application/json",
+                    "accept":"application/json",
+
+                },
+                body:data
+             })
+             .then((res)=>res.json())
+             .then((data)=>{
+                console.log("answer" , data.result)
+                document.getElementById(result).value=data.result
+             })
+            }
+        </script>
+</body>
+
+</html>

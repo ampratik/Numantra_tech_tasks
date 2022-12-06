@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=, initial-scale=1.0">
+    <title>Calcuato Using Nodejs</title>
+<style>
+    .container{
+   height: 100vh;
+   margin: 0;
+   padding: 0;
+   box-sizing: border-box;
+   display: flex;
+   align-items: center;
+   justify-content: center; 
+   background-color: bisque;
+}
+.calc{
+    height: 50%;
+    width: 50%;
+    display: flex;
+    align-items: center;
+    /* justify-content: center; */
+    flex-direction: column;
+    background-color: rgb(189, 218, 218);
+}
+#num1,#num2,#result{
+    margin:8px;
+    padding: 10px 20px;
+    border-radius: 5px;
+    border: none;
+    width: 80%;
+}
+
+.btn{
+    margin:5px;
+    margin-top: 30px;
+    padding:10px 20px;
+    border-radius: 2px;
+    box-sizing: border-box;
+ 
+}
+
+/* button {
+    background-color: aliceblue;
+box-sizing: border-box;
+} */
+</style>
+</head>
+
+<body>
+    <div class="container">
+        <div class="calc">
+            <div>
+                <h1>Welcome To Calculate Me!</h1>
+            </div>
+            <div class="form_css">
+                <form action="/Calculator" method="post">
+                    <input id="num1"  name="num1" placeHolder="Enter the first number">
+                    <br />
+                    <input id="num2" name="num2" placeHolder="Enter the second number">
+                    <br />
+                    <div class="result">
+                        <input id="result" placeholder="result" value="">
+                    </div>
+                    <!-- <button class="btn" type="submit">SUBMIT</button> -->
+                    <button class="btn" name="btn" value="+">+</button>
+                    <button class="btn" name="btn" value="-">-</button>
+                    <button class="btn" name="btn" value="*">*</button>
+                    <button class="btn" name="btn" value="/">/</button>
+                    <button class="btn" name="btn" value="%">%</button>
+                    <button class="btn" name="btn" value="**">Exp</button>
+                </form>
+            </div>
+        </div>
+    </div>
+    </div>
+
+</body>
+
+</html>
