@@ -1,3 +1,4 @@
+const { json } = require("body-parser");
 const redis = require("redis");
 const { promisify } = require("util");
 const userModel=require('../model/userModel')
@@ -23,15 +24,15 @@ const GET_ASYNC = promisify(redisClient.GET).bind(redisClient);
 
 getUserUsingRedis=async (req,res)=>{
     try{
-        let age=req.body.Gender
+        let name=req.body.Name
         
-    let result=await GET_ASYNC(`${age}`)
+    let result=await GET_ASYNC(`${name}`)
     if(result){
-      return res.status(200).send({status:true,message:"data come from redis cache", data:result})
+      return res.status(200).json({status:true,message:"data come from redis cache", data:result})
 }
-   let res1=await userModel.find({Gender:age})
+   let res1=await userModel.find({Name:name})
    res.status(200).send({status:true,message:"data come from mongodb cache", data:res1})
-      await SET_ASYNC(age,JSON.stringify(res1))
+      await SET_ASYNC(name,JSON.stringify(res1))
   
 }
 catch(error){

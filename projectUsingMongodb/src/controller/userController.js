@@ -47,9 +47,9 @@ return res.status(400).send({status:false,Message:"Please Enter Valid Name"})
 //     return res.status(400).send({status:false,Message:"Please Enter Valid Number"})
 //    }
 
-   let number=await userModel.findOne({Number:data.Number})
-   if(number) 
-   return res.status(400).send({status:false,Message:`${data.Number} this Number already exists try another`})
+//    let number=await userModel.findOne({Number:data.Number})
+//    if(number) 
+//    return res.status(400).send({status:false,Message:`${data.Number} this Number already exists try another`})
 
    //**********Age and Address validation********* */
 

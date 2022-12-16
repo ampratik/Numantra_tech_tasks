@@ -50,7 +50,7 @@ app.get("/getEmpCode", (req, res) => {
         for (let i = 0; i < codex.length; i++) {
           db.query(q1, codex[i], (error, edata) => {
             if (!error) {
-              db2.push(edata);
+              db2.push(...edata);
               //console.log(db2);
         
               if (i == codex.length - 1) {
@@ -196,7 +196,7 @@ try{
 db.query(`SELECT empcode FROM empcode`,(err,rows)=>{
   if(err) 
   return res.status(500).send({status:false,message:"unable to fetch the empcode" ,data:err.message})
-  else{
+  else{ 
    
     if(rows.length<1)
     return res.status(401).send({status:false,message:"No empcode exists in database"})
@@ -242,7 +242,7 @@ function getData(code){
       }
     })
   })
-}
+}  
 
 const port = process.env.PORT || 3000;
 
