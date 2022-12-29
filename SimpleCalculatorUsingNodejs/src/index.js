@@ -51,9 +51,12 @@ const port=process.env.PORT || 3000
   })
 
 app.post("/Calculator",(req,res)=>{
+  if(!req.body.num1 || !req.body.num2){
+    res.send(`<h1 style= "text-align:center">Please Insert Both Numbers</h1>`)
+  }
     let result=eval(req.body.num1+req.body.btn+req.body.num2)
     console.log(result)
-    res.send(`<h1>The answer is ${result}</h1>`)
+    res.send(`<h1 style= "text-align:center">The answer is ${result}</h1>`)
 })
 
 app.listen(port ,function(){
